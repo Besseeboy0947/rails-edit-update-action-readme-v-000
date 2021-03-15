@@ -1,23 +1,31 @@
-class ArticlesController < ApplicationController
-  def index
-    @articles = Article.all
-  end
+class PostsController < ApplicationController
+	def index
+		@Articles = Post.all
+	end
 
-  def show
-    @article = Article.find(params[:id])
-  end
+	def show
+		@Articles= Post.find(params[:id])
+	end
 
-  def new
-    @article = Article.new
-  end
+	def new
+		@Articles= Post.new
+	end
 
-  def create
-    @article = Article.new
-    @article.title = params[:title]
-    @article.description = params[:description]
-    @article.save
-    redirect_to article_path(@article)
-  end
+	def create
+	  @Articles= Post.new
+	  @Articlestitle = params[:title]
+	  @Articlesdescription = params[:description]
+	  @Articlessave
+	  redirect_to post_path(@Articles
+	end
 
-  # add edit and update methods here
+	def edit
+		@Articles= Post.find(params[:id])
+	end
+
+	def update
+		@Articles= Post.find(params[:id])
+		@Articlesupdate(title: params[:title], description: params[:description])
+		redirect_to post_path(@Articles
+	end
 end
